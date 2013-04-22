@@ -121,7 +121,7 @@ class Client():
         if test_tl_link:
             links["__test_tl_link__"] = {}
             for line in test_tl_link[0][0].split("\n"):
-                links["__test_tl_link__"][line.split(":")[0]] = "".join(line.split(":")[1:])
+                links["__test_tl_link__"][line.split(":")[0]] = ":".join(line.split(":")[1:])
 
         content = re.sub(test_tl_link_regexp, "", content)  # чистим контент от тестовых ссылок, чтоб они нам не попадались при поиске служебных слов
 
