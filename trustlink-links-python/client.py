@@ -54,7 +54,7 @@ class Client():
         if not self.TRUSTLINK_USER:
             raise ValueError("TRUSTLINK_USER is not set.")
 
-        self.host = re.sub(r'(?i)^www\.', '', self.host) # избавляемся от "www." в имени домена
+        self.host = re.sub(r'(?i)^www\.', '', self.host)  # избавляемся от "www." в имени домена
 
         if not self.request_uri:
             self.request_uri = os.environ.get("REQUEST_URI", "/")
@@ -78,7 +78,6 @@ class Client():
             self.cache_path + '/trustlink-links-python_cache.sql',
             backend='sqlite',
             expire_after=self.cache_reloadtime
-
         )
 
         url = "/".join([self.server, self.TRUSTLINK_USER, self.host.lower(), self.charset.upper() + ".text"])
